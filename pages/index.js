@@ -6,6 +6,8 @@ import { Flex } from "@chakra-ui/react";
 import { useState } from "react";
 export default function Home() {
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
+  const [type, setType] = useState("restaurants");
+  const [ratings, setRatings] = useState("");
   return (
     <Flex
       justifyContent={"center"}
@@ -16,6 +18,11 @@ export default function Home() {
       maxHeight={"100vh"}
       position={"relative"}
     >
+      <Header
+        setType={setType}
+        setRatings={setRatings}
+        setCoordinates={setCoordinates}
+      />
       <Map setCoordinates={setCoordinates} coordinates={coordinates} />
     </Flex>
   );
